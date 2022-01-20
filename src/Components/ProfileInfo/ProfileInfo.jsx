@@ -80,7 +80,7 @@ export const ProfileInfo = () => {
           label="User name"
           value={newUserName}
           onChange={handleChangeUserName}
-          inputProps={{ maxLength: 20 }}
+          inputProps={{ maxLength: 20, minLength: 5 }}
         />
         <InputMask
           value={newPhone}
