@@ -20,6 +20,22 @@ const authReducer = (state = initialState, action) => {
         loading: true,
         error: null,
       };
+    case AUTH.GET_USER.RESOLVED:
+      return {
+        ...state,
+        registerEventLoading: false,
+        loading: false,
+        loggedIn: true,
+        user: action.user,
+      };
+    case AUTH.GET_USER.REJECTED:
+      return {
+        ...state,
+        registerEventLoading: false,
+        loading: false,
+        loggedIn: false,
+        user: null,
+      };
     case AUTH.REGISTER_WITH_EMAIL.REQUEST:
       return {
         ...state,
@@ -27,22 +43,6 @@ const authReducer = (state = initialState, action) => {
         registerEventLoading: true,
         loading: false,
         error: null,
-      };
-    case AUTH.GET_USER.RESOLVED:
-      if (!action.user) {
-        return {
-          ...state,
-          registerEventLoading: false,
-          loading: false,
-          loggedIn: false,
-        };
-      }
-      return {
-        ...state,
-        registerEventLoading: false,
-        loading: false,
-        loggedIn: true,
-        user: action.user,
       };
     case AUTH.LOGIN_WITH_EMAIL.SUCCESS:
     case AUTH.REGISTER_WITH_EMAIL.SUCCESS:

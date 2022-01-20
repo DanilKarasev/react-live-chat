@@ -8,6 +8,7 @@ import {
   getUserResolved,
   createUserDb,
   createUserDbFailure,
+  getUserRejected,
 } from "./actions";
 import { call, delay, put, takeEvery } from "redux-saga/effects";
 import { AUTH } from "./constants";
@@ -82,7 +83,9 @@ function* getUserSaga() {
     });
   }
   const user = yield call(onAuthStateChanged);
-  yield put(getUserResolved(user));
+  if (!user) {
+    yield put(getUserRejected(user));
+  } else yield put(getUserResolved(user));
 }
 
 export default function* authRootSaga() {

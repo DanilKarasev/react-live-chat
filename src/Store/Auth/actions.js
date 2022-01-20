@@ -56,6 +56,10 @@ export const getUserResolved = (user) => ({
   user,
 });
 
+export const getUserRejected = () => ({
+  type: AUTH.GET_USER.REJECTED,
+});
+
 export const createUserDb = (payload) => ({
   type: AUTH.CREATE_USER_DB,
   payload,
