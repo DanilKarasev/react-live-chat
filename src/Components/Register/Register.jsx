@@ -59,7 +59,6 @@ export const Register = ({ open, close }) => {
                 onChange={handleChangeUserName}
                 required
                 type={"text"}
-                id="outlined-required"
                 label="User name"
                 inputProps={{ maxLength: 20 }}
               />
@@ -69,20 +68,13 @@ export const Register = ({ open, close }) => {
                 mask="+7(999) 999 99 99"
                 maskChar=" "
               >
-                {() => (
-                  <TextField
-                    type={"text"}
-                    id="outlined-required"
-                    label="Phone number"
-                  />
-                )}
+                {() => <TextField type={"text"} label="Phone number" />}
               </InputMask>
               <TextField
                 value={email}
                 onChange={handleChangeEmail}
                 required
                 type={"email"}
-                id="outlined-required"
                 label="Email"
                 inputProps={{ maxLength: 40 }}
               />
@@ -91,7 +83,6 @@ export const Register = ({ open, close }) => {
                 onChange={handleChangePassword}
                 required
                 type={"password"}
-                id="outlined-required"
                 label="Password"
                 inputProps={{ maxLength: 30 }}
               />

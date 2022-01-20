@@ -35,7 +35,7 @@ export const ProfileInfo = () => {
     } else {
       setProfileInfoChanged(false);
     }
-  }, [newUserName, newPhone, newBio]);
+  }, [userName, phone, bio, newUserName, newPhone, newBio]);
 
   const buttonAnimation = useSpring({
     opacity: profileInfoChanged ? 1 : 0,

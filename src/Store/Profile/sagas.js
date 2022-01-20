@@ -1,7 +1,7 @@
+import firebase from "firebase/app";
 import { db } from "../../Services/firebase";
 import { call, put, takeEvery } from "redux-saga/effects";
 import { changeProfileInfoSuccess, updateProfileInfoAction } from "./actions";
-import firebase from "firebase";
 import { AUTH } from "../Auth/constants";
 import {
   CHANGE_PROFILE_INFO_REQUEST,

@@ -12,7 +12,7 @@ import {
 } from "./actions";
 import { call, delay, put, takeEvery } from "redux-saga/effects";
 import { AUTH } from "./constants";
-import firebase from "firebase";
+import firebase from "firebase/app";
 
 function* loginWithEmailSaga(payload) {
   try {
