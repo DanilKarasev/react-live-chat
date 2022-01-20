@@ -1,0 +1,52 @@
+.Chat-body
+  display: flex
+  flex-direction: column
+  overflow-y: auto
+  gap: 20px
+  padding: 1vh
+  flex-grow: 1
+  width: 60%
+  max-width: 720px
+  margin: 0 auto
+  &::-webkit-scrollbar
+    width: 6px
+    background-color: transparent
+  &::-webkit-scrollbar-thumb
+    height: 50px
+    background-color: rgba(223,225,229, 0.3)
+    border-radius: 20px
+
+.Message
+  box-sizing: border-box
+  display: flex
+  flex-direction: column
+  background-color: white
+  border-radius: 5px
+  padding: 1%
+  max-width: 480px
+  text-align: left
+  align-self: flex-start
+  word-break: break-all
+  h4
+    color: coral
+    padding-bottom: 10px
+  &-me
+    align-self: flex-end
+    background-color: #eeffde
+    h4
+      color: #895dd5
+  &-box
+    display: flex
+    gap: 10px
+  &-text
+    flex-grow: 1
+  &-time
+    color: #707579
+    height: 12px
+    font-size: 12px
+    align-self: flex-end
+    word-break: keep-all
+
+@media screen and ( max-width: 1200px  )
+  .Chat-body
+    width: 90%

@@ -1,0 +1,40 @@
+.Chat-left-footer
+  display: flex
+  align-items: center
+  gap: 2%
+  padding: 4px 4px 4px 8px
+  height: 46px
+  border-top: 1px solid #dfe1e5
+  .css-5yjc7j-MuiPaper-root
+    flex-grow: 1
+    border: 1px solid #dfe1e5 !important
+    border-radius: 20px !important
+  .css-1g98tuo-MuiButtonBase-root-MuiListItemButton-root.Mui-selected
+    color: white
+    background-color: #3390ec !important
+
+.AddChat-btn
+  background-color: #3390ec
+  transition: all .3s ease
+  border-radius: 50%
+  height: 37px
+  width: 37px
+  font-size: 35px
+  text-align: center
+  color: white
+  cursor: pointer
+  &:hover
+    background-color: darken(#3390ec, 20%)
+  &:disabled
+    opacity: 50%
+    cursor: inherit
+    &:hover
+      background-color: #3390ec
+  &:active
+    background-color: darken(#3390ec, 30%)
+
+.Add-chat-buttons
+  display: flex
+  width: 100%
+  justify-content: space-between
+  margin-top: 10px

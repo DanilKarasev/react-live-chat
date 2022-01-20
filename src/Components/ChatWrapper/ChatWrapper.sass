@@ -1,0 +1,77 @@
+.Chat-wrapper
+  width: 100%
+  max-width: 360px
+  display: flex
+  flex-direction: column
+  position: relative
+  transition: all .3s ease-in-out
+
+.Add-chat-open-modal
+  --size: 54px
+  --offset: 1.25rem
+  border-radius: 50%
+  height: var(--size)
+  width: var(--size)
+  line-height: var(--size)
+  position: absolute
+  transform: translateZ(0)
+  --translateY: calc(54px + var(--offset))
+  bottom: var(--offset)
+  right: var(--offset)
+  background-color: #3390ec
+  transition: all .3s ease
+  font-size: 35px
+  text-align: center
+  color: white
+  cursor: pointer
+  z-index: 99
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.63)
+  &:hover
+    background-color: darken(#3390ec, 20%)
+  &:disabled
+    opacity: 50%
+    cursor: inherit
+    &:hover
+      background-color: #3390ec
+  &:active
+    background-color: darken(#3390ec, 30%)
+
+.Dictionary-link
+  --size: 54px
+  --offset: 1.25rem
+  border-radius: 50%
+  height: var(--size)
+  width: var(--size)
+  line-height: var(--size)
+  position: absolute
+  transform: translateZ(0)
+  --translateY: calc(54px + var(--offset))
+  bottom: 90px
+  right: var(--offset)
+  background-color: #7d33ec
+  transition: all .3s ease
+  font-size: 35px
+  text-align: center
+  color: white
+  cursor: pointer
+  z-index: 99
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.63)
+  &:hover
+    background-color: darken(#7d33ec, 20%)
+  &:disabled
+    opacity: 50%
+    cursor: inherit
+    &:hover
+      background-color: #7d33ec
+  &:active
+    background-color: darken(#7d33ec, 30%)
+
+@media screen and ( max-width: 750px  )
+  .Chat-wrapper
+    max-width: 285px
+
+@media screen and ( max-width: 650px  )
+  .Chat-wrapper
+    max-width: 650px
+  .Chat-wrapper-away
+    display: none

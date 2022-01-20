@@ -1,0 +1,51 @@
+.Home
+  display: flex
+  flex-direction: column
+  background: rgb(144,149,0)
+  background: radial-gradient(circle, #909504 -114%, #62AA01 -97%, #B5AC5F 86%)
+  background-position: bottom 300px right 320px
+  width: 600px
+  height: 100vh
+  flex-grow: 1
+  border-left: 1px solid #dfe1e5
+  transition: all .3s ease-in-out
+
+.Home-header
+  background-color: white
+  display: flex
+  gap: 10px
+  align-items: center
+  color: black
+  font-size: 24px
+  font-weight: 600
+  height: 46px
+  padding: 4px 4px 4px 8px
+  border-bottom: 1px solid #dfe1e5
+
+.Home-info
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  overflow-y: auto
+  gap: 20px
+  padding: 1vh
+  flex-grow: 1
+  width: 60%
+  max-width: 720px
+  margin: 0 auto
+  p
+    font-family: 'Roboto', sans-serif
+    font-weight: 300
+    background-color: rgba(163,163,163, 0.6)
+    padding: 10px 20px
+    border-radius: 20px
+    color: white
+    text-align: center
+
+@media screen and ( max-width: 650px  )
+  .Home
+    display: none
+
+
+

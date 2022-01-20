@@ -1,0 +1,43 @@
+.Add-message
+  width: 60%
+  min-width: 300px
+  margin: 0 auto
+  font-size: 24px
+  font-weight: 600
+  padding: 1vh
+  border-radius: 0 0 20px 20px
+  form
+    display: flex
+    align-items: center
+    justify-content: center
+    input
+      align-items: center
+      resize: none
+      border-radius: 20px
+      padding-left: 4%
+      flex-grow: 1
+      font-size: 16px
+      height: 45px
+      margin-right: 15px
+      word-wrap: break-word
+      &:focus
+        border: none
+    button
+      width: 45px
+      height: 45px
+      border-radius: 50%
+      background-image: url("sendMessage.png")
+      background-repeat: no-repeat
+      background-position: center
+      transition: all .3s ease
+      cursor: pointer
+      &:hover
+        filter: brightness(120%)
+      &:active
+        filter: brightness(50%)
+
+@media screen and ( max-width: 1200px  )
+  .Add-message
+    width: 90%
+
+
