@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { isValidElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, TextField } from "@mui/material";
 import { useSpring, animated } from "react-spring";
@@ -14,13 +14,12 @@ export const ProfileInfo = () => {
   const { userName, phone, bio } = useSelector(profileInfoSelector);
 
   const [profileInfoChanged, setProfileInfoChanged] = useState(false);
-
   const [newUserName, setNewUserName] = useState(userName);
   const [newPhone, setNewPhone] = useState(phone);
-  const [newBio, setNewBio] = useState(bio);
 
+  const [newBio, setNewBio] = useState(bio);
   const handleChangeUserName = (event) => {
-    setNewUserName(event.target.value.replace(/\s+/g, " "));
+    setNewUserName(event.target.value);
   };
   const handleChangePhone = (event) => {
     setNewPhone(event.target.value);
@@ -41,11 +40,14 @@ export const ProfileInfo = () => {
     opacity: profileInfoChanged ? 1 : 0,
     marginTop: profileInfoChanged ? 0 : 150,
   });
+  const handleUpdateProfileInfo = (e) => {
+    e.preventDefault();
+    console.log(newUserName, newPhone, newBio);
 
-  const handleUpdateProfileInfo = () => {
-    dispatch(changeProfileInfoRequest(newUserName, newPhone, newBio));
+    dispatch(
+      changeProfileInfoRequest(newUserName.trim(), newPhone, newBio.trim())
+    );
   };
-
   function stringAvatar(name) {
     if (name.includes(" ")) {
       return {
@@ -74,15 +76,22 @@ export const ProfileInfo = () => {
       <div className={"Profile-avatar"}>
         <Avatar {...stringAvatar(userName)} />
       </div>
-      <div className={"Profile-inputs"}>
+
+      <form onSubmit={handleUpdateProfileInfo} className={"Profile-form"}>
         <TextField
-          error
-          id="outlined-input"
+          required
           label="User name"
-          value={newUserName}
+          helperText="SOME IMPORTANT TEXT"
+          value={newUserName[0] === " " ? "" : newUserName}
+          // error={!newUserName || newUserName[0] === " "}
           onChange={handleChangeUserName}
-          inputProps={{ maxLength: 20, minLength: 5 }}
+          inputProps={{
+            maxLength: 20,
+            minLength: 5,
+            pattern: "^(?! )(?!.* $)(?!(?:.* ){2}).+$",
+          }}
         />
+
         <InputMask
           value={newPhone}
           onChange={handleChangePhone}
@@ -92,18 +101,17 @@ export const ProfileInfo = () => {
           {() => <TextField type={"text"} id="outlined" label="Phone number" />}
         </InputMask>
         <TextField
-          id="outlined-input"
           label="Bio"
           value={newBio}
           onChange={handleChangeBio}
           inputProps={{ maxLength: 50 }}
         />
-      </div>
-      <animated.div style={buttonAnimation}>
-        <Button onClick={handleUpdateProfileInfo} sx={{ mt: 4 }}>
-          Apply changes
-        </Button>
-      </animated.div>
+        <animated.div style={buttonAnimation}>
+          <Button className={"Apply-form"} type={"submit"} sx={{ mt: 4 }}>
+            Apply changes
+          </Button>
+        </animated.div>
+      </form>
     </>
   );
 };

@@ -69,7 +69,7 @@ export const ChatList = () => {
                   selected={id === currentChatId}
                   sx={{ gap: "10px" }}
                 >
-                  <Avatar alt={name} src={avatar}>
+                  <Avatar className={"Chat-avatar"} alt={name} src={avatar}>
                     {name[0]}
                   </Avatar>
                   <ListItemText primary={name} />

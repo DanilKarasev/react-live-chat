@@ -1,14 +1,14 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
-import "./Register.sass";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerWithEmail } from "../../Store/Auth/actions";
 import { RegisterResult } from "../RegisterResult";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import InputMask from "react-input-mask";
 import { modalAnimation } from "../Animations/animations";
+import "./Register.sass";
 
 export const Register = ({ open, close }) => {
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ export const Register = ({ open, close }) => {
           <form onSubmit={handleRegisterNewUser}>
             <div className={"Register-inputs"}>
               <TextField
-                value={userName[0] === " " ? "" : userName}
+                value={userName}
                 onChange={handleChangeUserName}
                 required
                 type={"text"}
