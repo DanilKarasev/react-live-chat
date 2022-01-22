@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { fetchWordData } from "../../Store/Dictionary/actions";
 import { ChatWrapper } from "../../Components/ChatWrapper";
 import { useHistory } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const Dictionary = () => {
   const history = useHistory();
@@ -44,7 +45,7 @@ export const Dictionary = () => {
             onClick={handleClickCloseSidebar}
             className={"Btn-sidebar-close"}
           >
-            &#129120;
+            <ArrowBackIcon />
           </button>
           <p>Dictionary</p>
         </div>

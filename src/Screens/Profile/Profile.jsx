@@ -6,6 +6,7 @@ import { ProfileInfo } from "../../Components/ProfileInfo";
 import { profileSelector } from "../../Store/Profile/selectors";
 import { ROUTES } from "../../Router/constants";
 import { Redirect, useHistory } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import "./Profile.sass";
 
 export const Profile = () => {
@@ -45,7 +46,7 @@ export const Profile = () => {
               onClick={handleClickCloseSidebar}
               className={"Btn-sidebar-close"}
             >
-              &#129120;
+              <ArrowBackIcon />
             </button>
             <p>Profile settings</p>
           </div>

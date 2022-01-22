@@ -7,6 +7,7 @@ import { AddMessage } from "../../Components/AddMessage";
 import Avatar from "@mui/material/Avatar";
 import "./Chats.sass";
 import { ChatWrapper } from "../../Components/ChatWrapper";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export const Chats = () => {
   const history = useHistory();
@@ -31,7 +32,7 @@ export const Chats = () => {
             onClick={handleClickCloseSidebar}
             className={"Btn-sidebar-close"}
           >
-            &#129120;
+            <ArrowBackIcon />
           </button>
           <Avatar alt={currentChat.name} src={currentChat.avatar} />
           <h4>{currentChat.name}</h4>{" "}

@@ -12,12 +12,20 @@
   display: flex
   justify-content: space-between
   gap: 10px
-  align-items: baseline
   font-size: 24px
   font-weight: 600
   min-height: 46px
   padding: 4px 4px 4px 8px
   border-bottom: 1px solid #dfe1e5
+  &-left
+    display: flex
+    p
+      text-align: center
+      font-size: 1.5rem
+      line-height: 1
+      margin: 0
+      padding: 0.5rem
+
 
 .Profile-main
   padding: 1%
@@ -45,16 +53,6 @@
   gap: 19px
   width: 67%
 
-.Profile-header-left
-  display: flex
-  align-items: baseline
-  p
-    text-align: center
-    font-size: 1.5rem
-    line-height: 1
-    margin: 0
-    padding: 0.5rem
-
 .Btn-sidebar-close
   display: none
   color: #707579
@@ -70,5 +68,8 @@
     background-color: rgba(112, 117, 121, 0.08)
 
 @media screen and ( max-width: 650px  )
+  .Profile-main
+    padding: 2% 1%
+
   .Btn-sidebar-close
     display: block
