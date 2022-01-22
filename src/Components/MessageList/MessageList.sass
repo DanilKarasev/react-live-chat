@@ -1,13 +1,10 @@
 .Chat-body
-  display: flex
-  flex-direction: column
   overflow-y: auto
-  gap: 20px
   padding: 1vh
-  flex-grow: 1
   width: 60%
   max-width: 720px
   margin: 0 auto
+  clear: left
   &::-webkit-scrollbar
     width: 6px
     background-color: transparent
@@ -17,6 +14,7 @@
     border-radius: 20px
 
 .Message
+  margin-top: 20px
   box-sizing: border-box
   display: flex
   flex-direction: column
@@ -25,18 +23,21 @@
   padding: 1%
   max-width: 480px
   text-align: left
-  align-self: flex-start
+  float: left
+  clear: both
+  width: fit-content
   h4
     color: coral
     padding-bottom: 10px
   &-me
-    align-self: flex-end
     background-color: #eeffde
+    float: right
     h4
       color: #895dd5
   &-box
     display: flex
     gap: 10px
+    word-break: break-word
   &-text
     flex-grow: 1
     word-break: break-word

@@ -76,6 +76,7 @@ export const ProfileInfo = () => {
       </div>
       <div className={"Profile-inputs"}>
         <TextField
+          error
           id="outlined-input"
           label="User name"
           value={newUserName}

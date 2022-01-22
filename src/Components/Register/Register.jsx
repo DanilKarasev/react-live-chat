@@ -55,7 +55,7 @@ export const Register = ({ open, close }) => {
           <form onSubmit={handleRegisterNewUser}>
             <div className={"Register-inputs"}>
               <TextField
-                value={userName}
+                value={userName[0] === " " ? "" : userName}
                 onChange={handleChangeUserName}
                 required
                 type={"text"}
@@ -92,7 +92,11 @@ export const Register = ({ open, close }) => {
               <Button variant="outlined" color="error" onClick={close}>
                 Cancel
               </Button>
-              <Button variant="outlined" type={"submit"}>
+              <Button
+                disabled={!email || !password || !userName}
+                variant="outlined"
+                type={"submit"}
+              >
                 Register
               </Button>
             </div>

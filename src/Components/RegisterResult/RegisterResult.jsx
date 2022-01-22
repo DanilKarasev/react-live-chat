@@ -16,5 +16,5 @@ export const RegisterResult = () => {
         <div className={"Error"}>{error?.register}</div>
       </div>
     );
-  } else return <div className={"Result"}> </div>;
+  } else return <div className={"Result"}> </div>; //думал возвращать сюда зеленую галочку при успешной регистрации
 };
