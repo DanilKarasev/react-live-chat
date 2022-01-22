@@ -1,4 +1,4 @@
-import React, { isValidElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, TextField } from "@mui/material";
 import { useSpring, animated } from "react-spring";
@@ -19,7 +19,7 @@ export const ProfileInfo = () => {
 
   const [newBio, setNewBio] = useState(bio);
   const handleChangeUserName = (event) => {
-    setNewUserName(event.target.value);
+    setNewUserName(event.target.value.replace(/[^a-zA-ZА-Яа-я0-9]/g, ""));
   };
   const handleChangePhone = (event) => {
     setNewPhone(event.target.value);
@@ -42,10 +42,14 @@ export const ProfileInfo = () => {
   });
   const handleUpdateProfileInfo = (e) => {
     e.preventDefault();
-    console.log(newUserName, newPhone, newBio);
+    console.log(newPhone, newPhone.length);
 
     dispatch(
-      changeProfileInfoRequest(newUserName.trim(), newPhone, newBio.trim())
+      changeProfileInfoRequest(
+        newUserName.trim(),
+        newPhone.trim(),
+        newBio.trim()
+      )
     );
   };
   function stringAvatar(name) {
@@ -83,22 +87,30 @@ export const ProfileInfo = () => {
           label="User name"
           helperText="SOME IMPORTANT TEXT"
           value={newUserName[0] === " " ? "" : newUserName}
-          // error={!newUserName || newUserName[0] === " "}
+          error={!newUserName || newUserName[0] === " "}
           onChange={handleChangeUserName}
           inputProps={{
             maxLength: 20,
             minLength: 5,
-            pattern: "^(?! )(?!.* $)(?!(?:.* ){2}).+$",
           }}
         />
 
         <InputMask
+          requiered
           value={newPhone}
           onChange={handleChangePhone}
-          mask="+7(999) 999 99 99"
-          maskChar=" "
+          mask="+7(999)-999-99-99"
+          maskChar={null}
         >
-          {() => <TextField type={"text"} id="outlined" label="Phone number" />}
+          {() => (
+            <TextField
+              required
+              type={"text"}
+              id="outlined"
+              label="Phone number"
+              inputProps={{ minLength: 17 }}
+            />
+          )}
         </InputMask>
         <TextField
           label="Bio"

@@ -18,7 +18,7 @@ export const Register = ({ open, close }) => {
   const [password, setPassword] = useState("");
 
   const handleChangeUserName = (event) => {
-    setUserName(event.target.value.replace(/\s+/g, " "));
+    setUserName(event.target.value.replace(/[^a-zA-ZА-Яа-я0-9]/g, ""));
   };
   const handleChangePhone = (event) => {
     setPhone(event.target.value);
@@ -27,12 +27,19 @@ export const Register = ({ open, close }) => {
     setEmail(event.target.value.trim());
   };
   const handleChangePassword = (event) => {
-    setPassword(event.target.value.replace(/\s/g, ""));
+    setPassword(event.target.value.replace(/[^a-zA-Z0-9]/g, ""));
   };
 
   const handleRegisterNewUser = (e) => {
     e.preventDefault();
-    dispatch(registerWithEmail(userName.trim(), phone, email, password));
+    dispatch(
+      registerWithEmail(
+        userName.trim(),
+        phone.trim(),
+        email.trim(),
+        password.trim()
+      )
+    );
   };
 
   return (
@@ -55,7 +62,7 @@ export const Register = ({ open, close }) => {
           <form onSubmit={handleRegisterNewUser}>
             <div className={"Register-inputs"}>
               <TextField
-                value={userName}
+                value={userName[0] === " " ? "" : userName}
                 onChange={handleChangeUserName}
                 required
                 type={"text"}
@@ -65,13 +72,13 @@ export const Register = ({ open, close }) => {
               <InputMask
                 value={phone}
                 onChange={handleChangePhone}
-                mask="+7(999) 999 99 99"
-                maskChar=" "
+                mask="+7(999)-999-99-99"
+                maskChar={null}
               >
                 {() => <TextField type={"text"} label="Phone number" />}
               </InputMask>
               <TextField
-                value={email}
+                value={email[0] === " " ? "" : email}
                 onChange={handleChangeEmail}
                 required
                 type={"email"}
