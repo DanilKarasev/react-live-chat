@@ -12,6 +12,7 @@
 .Login-main
   display: flex
   flex-direction: column
+  padding: 0 1%
   h1, h3
     text-align: center
 
@@ -41,7 +42,10 @@
   text-align: center
 
 @media screen and ( max-width: 650px  )
+  .Login-form
+    width: 70%
+    margin: 0 auto
   .Login-inputs
     flex-direction: column
-    &:first-child
-      margin-bottom: 30px
+    .MuiInput-root
+      margin-bottom: 20px

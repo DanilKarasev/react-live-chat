@@ -42,8 +42,6 @@ export const ProfileInfo = () => {
   });
   const handleUpdateProfileInfo = (e) => {
     e.preventDefault();
-    console.log(newPhone, newPhone.length);
-
     dispatch(
       changeProfileInfoRequest(
         newUserName.trim(),
@@ -59,7 +57,6 @@ export const ProfileInfo = () => {
           bgcolor: stringToColor(name),
           width: "100%",
           height: "100%",
-          fontSize: "6.5rem",
         },
         children: `${name.split(" ")[0][0]}${name.split(" ")[1][0]}`,
       };
@@ -69,7 +66,6 @@ export const ProfileInfo = () => {
         bgcolor: stringToColor(name),
         width: "100%",
         height: "100%",
-        fontSize: "6.5rem",
       },
       children: `${name[0]}`,
     };
@@ -85,7 +81,6 @@ export const ProfileInfo = () => {
         <TextField
           required
           label="User name"
-          helperText="SOME IMPORTANT TEXT"
           value={newUserName[0] === " " ? "" : newUserName}
           error={!newUserName || newUserName[0] === " "}
           onChange={handleChangeUserName}
