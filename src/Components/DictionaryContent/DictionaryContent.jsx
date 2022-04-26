@@ -22,7 +22,7 @@ export const DictionaryContent = () => {
   if (error)
     return (
       <animated.div className={"Dictionary-no-content"} style={animationStyle}>
-        В нашем словаре такого слова не нашлось :(
+        There is no such a word in our dictionary :(
       </animated.div>
     );
 
@@ -39,12 +39,12 @@ export const DictionaryContent = () => {
 
         <div className={"Dictionary-definition"}>
           <div>
-            <h3>Значение: </h3>
+            <h3>Definition: </h3>
             <p>{definition}</p>
           </div>
           <div>
-            <h3>Пример: </h3>
-            <p>{example ? example : `Примеров с ${word} не нашлось`}</p>
+            <h3>Example: </h3>
+            <p>{example ? example : `There is no examples with ${word} =(`}</p>
           </div>
         </div>
       </animated.div>
@@ -53,7 +53,7 @@ export const DictionaryContent = () => {
 
   return (
     <animated.div className={"Dictionary-no-content"} style={animationStyle}>
-      <div>Введите слово и нажмите Enter</div>
+      <div>Type the word and press Enter</div>
     </animated.div>
   );
 };

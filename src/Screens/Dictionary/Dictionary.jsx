@@ -56,7 +56,7 @@ export const Dictionary = () => {
                 value={wordToCheck}
                 onChange={handleWord}
                 id="outlined-basic"
-                label="Type any word in russian"
+                label="Type any word"
                 variant="outlined"
               />
               <Button type={"submit"} disabled={!wordToCheck}>
