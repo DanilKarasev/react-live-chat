@@ -1,25 +1,21 @@
 # Real - time chat
 
-Проект создан с помощью [Create React App](https://github.com/facebook/create-react-app).
-
 ## UI
 
-Вы можете зарегистрировать нового пользователя с любыми данными, либо использовать тестовый аккаунт для авторизации.
+You can sign up a new user with any data, or use test account for authorization.
 
-Данные для логина:\
+For login:\
 e-mail: `test@test.test`\
 password: `123456`
 
+You can add\remove chats, move through chat windows, change user data.\
+Also there is a feature as vocabular dictionary. Added just for practice with API.
 
-Вы можете добавлять\удалять чаты, перемещаться по вкладкам чата, изменять данные пользователя.\
-Так же есть фича в виде странички лексического словаря(добавлен просто для практики с API запросами).
+## Logics
 
+Redux-saga as middleware, Firebase as database.\
+On earlier builds there was a redux-persist, but currently it has only dictionary data.
 
-## Логика
+### Adaptivity
 
-В проекте в качестве middleware используется redux-saga, в качестве базы данных Firebase.\
-На ранних стадиях был задействован redux-persist, но на данный момент в нем сохраняется только данные из Dictionary.
-
-### Адаптивность
-
-Разработано как десктоп приложение, но адаптивный дизайн присутствует. Вроде бы даже на Safari все более - менее (не точно).
+It was build as desktop app, but can run on most devices.
