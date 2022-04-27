@@ -28,7 +28,7 @@ export const ChatWrapper = () => {
         onClick={handleOpenAddChatModal}
         className={"Add-chat-open-modal"}
       >
-        +
+        <div>+</div>
       </button>
       <AddChat open={open} close={handleCloseAddChatModal} />
     </div>

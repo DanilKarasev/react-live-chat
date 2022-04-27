@@ -58,7 +58,7 @@ export const ChatList = () => {
           aria-labelledby="nested-list-subheader"
           subheader={
             <ListSubheader component="div" id="nested-list-subheader">
-              Список чатов
+              Chats list
             </ListSubheader>
           }
         >
